@@ -20,31 +20,31 @@ public class PostController {
 //    }
 
     // 글 작성하기
-    @PostMapping("/api/posts")
+    @PostMapping("/api/post")
     public ResponseDto<?> PostCreate(@RequestBody PostRequestDto requestDto) {
         return postService.createPost(requestDto);
     }
 
     // 글 조회하기 (전체)
-    @GetMapping("/api/posts")
+    @GetMapping("/api/post")
     public ResponseDto<?> getAllPost() {
         return postService.getAllPost();
     }
 
     // 글 조회하기 (개별)
-    @GetMapping("/api/posts/{id}")
+    @GetMapping("/api/post/{id}")
     public ResponseDto<?> getPost(@PathVariable Long id) {
         return postService.getPost(id);
     }
 
     // 글 수정하기
-    @PutMapping("/api/posts/{id}")
+    @PutMapping("/api/post/{id}")
     public ResponseDto<?> update(@PathVariable Long id, @RequestBody PostRequestDto requestDto) {
         return postService.update(id, requestDto);
     }
 
     // 글 삭제하기
-    @DeleteMapping("/api/posts/{id}")
+    @DeleteMapping("/api/post/{id}")
     public ResponseDto<?> delete(@PathVariable Long id) {
         return postService.delete(id);
     }

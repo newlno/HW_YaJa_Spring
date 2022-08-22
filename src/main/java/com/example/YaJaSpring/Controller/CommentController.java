@@ -1,7 +1,7 @@
 package com.example.YaJaSpring.Controller;
 
 
-import com.example.YaJaSpring.Dto.Request.PostRequestDto;
+import com.example.YaJaSpring.Dto.Request.CommentRequestDto;
 import com.example.YaJaSpring.Dto.response.ResponseDto;
 import com.example.YaJaSpring.Service.CommentService;
 import lombok.RequiredArgsConstructor;
@@ -15,21 +15,21 @@ public class CommentController {
 
     // 댓글 작성하기
     @PostMapping("/api/comment")
-    public ResponseDto<?> PostCreate(@RequestBody PostRequestDto requestDto) {
-        return commentService.createcomment(requestDto);
+    public ResponseDto<?> commentCreate(@RequestBody CommentRequestDto requestDto) {
+        return commentService.createComment(requestDto);
     }
 
     // 댓글 수정하기
-    @PutMapping("/api/comment/{id}")
-    public ResponseDto<?> update(@PathVariable Long id,
-                                 @RequestBody PostRequestDto requestDto) {
-        return commentService.update(id, requestDto);
+    @PutMapping("/api/comment/{commentId}")
+    public ResponseDto<?> update(@PathVariable Long commentId,
+                                 @RequestBody CommentRequestDto requestDto) {
+        return commentService.update(commentId, requestDto);
     }
 
     // 댓글 삭제하기
-    @DeleteMapping("/api/comment/{id}")
-    public ResponseDto<?> delete(@PathVariable Long id) {
-        return commentService.delete(id);
+    @DeleteMapping("/api/comment/{commentId}")
+    public ResponseDto<?> delete(@PathVariable Long commentId) {
+        return commentService.delete(commentId);
     }
 
 
